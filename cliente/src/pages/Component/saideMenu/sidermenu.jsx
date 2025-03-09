@@ -4,24 +4,24 @@ import { RightOutlined, LeftOutlined, PoweroffOutlined, TeamOutlined } from '@an
 import { Storefront, ArrowCircleLeft, StackOverflowLogo, ArrowCircleRight } from "phosphor-react";
 import { useContext } from 'react';
 import { UserContext } from '../../../userContext';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom'; // Importar correctamente 'useNavigate'
 import Logo from '../../../assets/fondedemanu.jpeg';
-import Logo1 from '../../../assets/fondomenu3.png'
+import Logo1 from '../../../assets/fondomenu3.png';
 
 const { Sider } = Layout;
 
 const menuItemsAd = [
-  { label: 'Producto', key: '/producto', icono: <Storefront size={32} /> },
-  { label: 'Stock', key: '/stock', icono: <StackOverflowLogo size={32} /> },
-  { label: 'Entrada', key: '/entrada', icono: <ArrowCircleRight size={32} /> },
-  { label: 'Salida', key: '/salida', icono: <ArrowCircleLeft size={32} /> },
-  { label: 'Personal', key: '/personal', icono: <TeamOutlined size={32} /> },
-  { label: 'Salir', key: '/salir', icono: <PoweroffOutlined size={32} />, danger: true },
+  { label: 'Producto', key: 'producto', icono: <Storefront size={32} /> },
+  { label: 'Stock', key: 'stock', icono: <StackOverflowLogo size={32} /> },
+  { label: 'Entrada', key: 'entrada', icono: <ArrowCircleRight size={32} /> },
+  { label: 'Salida', key: 'salida', icono: <ArrowCircleLeft size={32} /> },
+  { label: 'Personal', key: 'personal', icono: <TeamOutlined size={32} /> },
+  { label: 'Salir', key: 'salir', icono: <PoweroffOutlined size={32} />, danger: true },
 ];
 
 const Sidebar = ({ collapsed, setCollapsed, setIsMobile, setEntidad, isMobile }) => {
   const { user, setUser } = useContext(UserContext);
-  const navegador = useNavigate();
+  const navigate = useNavigate(); // Corrección: cambiar 'navegador' a 'navigate'
 
   return (
     <Sider
@@ -56,19 +56,18 @@ const Sidebar = ({ collapsed, setCollapsed, setIsMobile, setEntidad, isMobile })
       {/* Menú */}
       <Menu
         onClick={({ key }) => {
-          if (key === "/salir") {
+          if (key === "salir") {
             localStorage.removeItem('token');
             window.location.href = "http://localhost:6969";
             setUser(null);
           } else {
-            navegador(key);
-            setEntidad(key);
+            navigate(`/${key}`);  // Corrige la interpolación de la ruta
+            setEntidad(key.toLocaleUpperCase());
           }
         }}
         theme="dark"
         defaultSelectedKeys={["1"]}
-        mode = "inline"
-        //mode={isMobile ? "vertical" : "horizontal"}
+        mode="inline"
         items={user && user.rol === 1 ? menuItemsAd : menuItemsAd}
         style={{ flex: 1, backgroundImage: `url(${Logo})`,
         backgroundRepeat: 'no-repeat',

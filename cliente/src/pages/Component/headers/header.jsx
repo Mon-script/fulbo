@@ -8,15 +8,17 @@ const HeaderBar = ({ colorBgContainer, collapsed, setCollapsed, isMobile, entida
   return (
     <Header
       style={{
-        margin: '1rem',
+        margin: '0.3rem',
         padding: '1px 1px 1px 16px',
-        background: colorBgContainer,
+        //background: colorBgContainer,
+        background: 'rgba(39, 255, 39, 0.77)',
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: '15px',
+        borderRadius: '7px',
         overflow:'hidden',
-        fontSize: '3rem'
+        fontSize: '3rem',
+        color: 'rgb(3, 199, 3)'
       }}
     >
       <h3>{entidad}</h3>
