@@ -1,0 +1,38 @@
+@import "keep-react/css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.contenedor {
+  display: flex;
+  width: 100%;
+  
+}
+
+.sidebar-container {
+  display: flex;
+  
+  width: 200px; 
+  background-color: #fffcfc; 
+}
+
+.content-container {
+  flex: 1;
+  padding-left: 200px; 
+  padding: 20px;
+  height: 100vh;
+  overflow: auto; 
+}
+  

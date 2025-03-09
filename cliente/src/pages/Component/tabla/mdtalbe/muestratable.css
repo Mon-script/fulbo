@@ -1,0 +1,9 @@
+.ant-table {
+  font-size: 14px; /* Tamaño de fuente adaptado */
+}
+
+@media (max-width: 576px) {
+  .ant-table {
+    font-size: 12px; /* Fuente más pequeña en pantallas pequeñas */
+  }
+}

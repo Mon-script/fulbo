@@ -1,0 +1,19 @@
+/* Ajustar la cabecera */
+.ant-layout-header {
+    padding: 0;
+    line-height: 48px;
+  }
+  
+  /* Ocultar el botón del menú en pantallas grandes */
+  @media (min-width: 768px) {
+    .ant-btn {
+      display: none;
+    }
+  }
+  
+  /* Ajustar el contenido en pantallas pequeñas */
+  @media (max-width: 768px) {
+    .ant-layout-content {
+      padding: 8px;
+    }
+  }
